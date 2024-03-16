@@ -13,4 +13,7 @@ class Jugador extends Model
     protected $fillable = [
         'ci', 'nombre', 'telefono', 'email',
     ];
+    public function participantes(){
+        return $this->hasMany(Participante::class,'CIjugador');
+    }
 }

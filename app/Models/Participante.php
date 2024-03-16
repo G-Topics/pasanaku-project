@@ -28,4 +28,10 @@ class Participante extends Model
     {
         return $this->belongsTo( Partida::class, 'IDpartida');
     }
+
+    public function invitaciones(){
+        return $this->hasMany(Invitacion::class,'IDparticipante');
+    }
+
+
 }

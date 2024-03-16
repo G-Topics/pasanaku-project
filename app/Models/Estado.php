@@ -12,4 +12,8 @@ class Estado extends Model
     protected $fillable = [
         'id', 'nombre', 'descripcion',
     ];
+    public function partidas(){
+        return $this->hasMany(Partida::class,'IDmoneda');
+    }
 }
+

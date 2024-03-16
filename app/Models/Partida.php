@@ -23,4 +23,13 @@ class Partida extends Model
     {
         return $this->belongsTo( Estado::class, 'IDestado');
     }
+
+    public function participantes(){
+        return $this->hasMany(Participante::class,'IDpartida');
+    }
+
+    public function invitaciones(){
+        return $this->hasMany(Invitacion::class,'IDpartida');
+    }
+
 }

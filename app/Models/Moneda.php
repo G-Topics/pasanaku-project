@@ -11,4 +11,7 @@ class Moneda extends Model
     protected $fillable = [
         'id', 'nombre', 'smonetario',
     ];
+    public function partidas(){
+        return $this->hasMany(Partida::class,'IDmoneda');
+    }
 }
