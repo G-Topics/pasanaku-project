@@ -10,11 +10,11 @@ class Pago extends Model
     protected $table = 'pago';
     public $timestamps = false;
 
-    protected $fillable = ['id', 'fecha','monto','IDparticipante','ctaOrigen','ctaDestino'];
+    protected $fillable = ['id', 'fecha','monto','IDronda','IDparticipante','ctaOrigen','ctaDestino'];
     
 
     public function ctsorigen(){
-        return $this->belongsTo(Pago::class,'ctaOrigen');
+        return $this->belongsTo(Cuenta::class,'ctaOrigen');
     }
     public function ctsdestino(){
         return $this->belongsTo(Cuenta::class,'ctaDestino');

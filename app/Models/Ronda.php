@@ -10,7 +10,7 @@ class Ronda extends Model
     protected $table = 'ronda';
     public $timestamps = false;
 
-    protected $fillable = ['id', 'monto','ganador','vencimoento','IDpartida'];
+    protected $fillable = ['id', 'monto','IDganador','vencimoento','IDpartida'];
 
     public function pagos(){
         return $this->hasMany(Pago::class,'IDronda');
@@ -18,8 +18,8 @@ class Ronda extends Model
     public function ofertas(){
         return $this->hasMany(Oferta::class,'IDronda');
     }
-    public function ganadores(){
-        return $this->hasMany(Participante::class,'ganador');
+    public function ganador(){
+        return $this->belongsTo(Participante::class,'IDganador');
     }
     public function partidas(){
         return $this->belongsTo(Partida::class,'IDPartida');

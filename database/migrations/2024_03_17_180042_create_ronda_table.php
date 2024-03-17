@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('ronda', function (Blueprint $table) {
             $table->integer('id')->unsigned()->primary();
             $table->integer('monto');
-            $table->foreignId('ganador')->constrained('participante');
+            $table->foreignId('IDganador')->constrained('participante');
             $table->foreignId('IDpartida')->constrained('partida');
             $table->date('vencimiento');
             
