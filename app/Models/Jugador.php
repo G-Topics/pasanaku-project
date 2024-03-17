@@ -10,7 +10,9 @@ class Jugador extends Model
     protected $primaryKey = 'ci';
     public $incrementing = false;
     public $timestamps = false;
-    protected $fillable = [
-        'ci', 'nombre', 'telefono', 'email',
-    ];
+    protected $fillable = ['ci', 'nombre', 'telefono', 'email',];
+    
+    public function participantes(){
+        return $this->hasMany(Participante::class,'CIjugador');
+    }
 }
