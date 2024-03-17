@@ -19,11 +19,6 @@ class Partida extends Model
         return $this->belongsTo( Moneda::class, 'IDmoneda');
     }
 
-    public function estado()
-    {
-        return $this->belongsTo( Estado::class, 'IDestado');
-    }
-
     public function participantes(){
         return $this->hasMany(Participante::class,'IDpartida');
     }
