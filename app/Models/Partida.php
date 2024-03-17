@@ -2,17 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Partida extends Model
 {
     protected $table = 'partida';
     public $timestamps = false;
-
-    protected $fillable = [
-        'id', 'cant_participantes', 'fechainicio','IDmoneda','IDestado',
-    ];
+    protected $fillable = ['id', 'cant_participantes', 'fechainicio','IDmoneda','IDestado',];
 
     public function moneda()
     {
@@ -27,4 +23,7 @@ class Partida extends Model
         return $this->hasMany(Invitacion::class,'IDpartida');
     }
 
+    public function detalles(){
+        return $this->hasMany(Detalle::class);
+    }
 }

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Invitacion extends Model
@@ -10,9 +9,8 @@ class Invitacion extends Model
     protected $table = 'invitacion';
     public $timestamps = false;
 
-    protected $fillable = [
-        'id','IDparticipante','IDpartida',
-    ];
+    protected $fillable = ['id','IDparticipante','IDpartida',];
+    
     public function participante()
     {
         return $this->belongsTo( Participante::class, 'IDparticipante');

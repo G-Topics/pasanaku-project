@@ -2,17 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Participante extends Model
 {
     protected $table = 'participante';
     public $timestamps = false;
-
-    protected $fillable = [
-        'id' ,'CIjugador','IDrol','IDpartida',
-    ];
+    protected $fillable = ['id' ,'CIjugador','IDrol','IDpartida',];
 
     public function jugador()
     {
@@ -32,6 +28,4 @@ class Participante extends Model
     public function invitaciones(){
         return $this->hasMany(Invitacion::class,'IDparticipante');
     }
-
-
 }
