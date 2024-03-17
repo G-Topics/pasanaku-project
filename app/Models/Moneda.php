@@ -13,4 +13,7 @@ class Moneda extends Model
     public function partidas(){
         return $this->hasMany(Partida::class,'IDmoneda');
     }
+    public function cuentas(){
+        return $this->hasMany(Cuenta::class,'IDmoneda');
+    }
 }

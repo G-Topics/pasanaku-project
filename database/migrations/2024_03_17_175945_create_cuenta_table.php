@@ -17,7 +17,11 @@ return new class extends Migration
             $table->integer('id')->unsigned()->primary();
             $table->string('nrocuenta');
             $table->foreignId('IDmoneda')->constrained('moneda');
-            $table->foreignId('CIjugador')->constrained('jugador');
+            $table->unsignedBigInteger('CIjugador');
+            $table->foreign('CIjugador')
+            ->references('ci')
+            ->on('jugador')
+            ->onDelete('cascade');
         });
     }
 

@@ -19,8 +19,9 @@ return new class extends Migration
             $table->integer('monto');
             $table->foreignId('IDCuentaOrigen')->constrained('cuenta');
             $table->foreignId('IDCuentaDestino')->constrained('cuenta');
-            $table->foreignId('IDCuota')->constrained('cuota');
             $table->foreignId('IDparticipante')->constrained('participante');
+            $table->foreignId('IDronda')->constrained('ronda');
+            
         });
     }
 

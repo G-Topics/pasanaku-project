@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('oferta', function (Blueprint $table) {
             $table->integer('id')->unsigned()->primary();
             $table->foreignId('CIparticipante')->constrained('participante');
-            $table->foreignId('IDcuota')->constrained('cuota');
+            $table->foreignId('IDronda')->constrained('ronda');
             $table->string('monto');
             $table->date('fecha');
             
