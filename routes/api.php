@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\MonedaController;
+use App\Http\Controllers\JugadorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource('monedas', MonedaController::class);
 Route::resource('estados', EstadoController::class);
+Route::resource('jugadores', JugadorController::class);
