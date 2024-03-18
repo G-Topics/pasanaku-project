@@ -26,4 +26,7 @@ class Partida extends Model
     public function detalles(){
         return $this->hasMany(Detalle::class);
     }
+    public function rondas(){
+        return $this->hasMany(Ronda::class,'IDPartida');
+    }
 }

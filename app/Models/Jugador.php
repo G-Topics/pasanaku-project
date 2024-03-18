@@ -15,4 +15,7 @@ class Jugador extends Model
     public function participantes(){
         return $this->hasMany(Participante::class,'CIjugador');
     }
+    public function cuentas(){
+        return $this->hasMany(Cuenta::class,'CIjugador');
+    }
 }

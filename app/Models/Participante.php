@@ -28,4 +28,13 @@ class Participante extends Model
     public function invitaciones(){
         return $this->hasMany(Invitacion::class,'IDparticipante');
     }
+    public function pagos(){
+        return $this->hasMany(Pago::class,'IDparticipante');
+    }
+    public function ronda(){
+        return $this->belongsTo(Ronda::class,'IDganador');
+    }
+    public function ofertas(){
+        return $this->hasMany(Oferta::class,'IDparticipante');
+    }
 }
