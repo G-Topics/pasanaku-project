@@ -15,7 +15,9 @@ class JugadorController extends Controller
      */
     public function index()
     {
-        //
+        $jugadores = Jugador::get();
+ 
+        return response()->json($jugadores);
     }
 
     /**
@@ -26,7 +28,14 @@ class JugadorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $jugador = new Jugador();
+        $jugador->ci = $request->ci;
+        $jugador->nombre = $request->nombre;
+        $jugador->telefono = $request->telefono;
+        $jugador->email = $request->email;
+        $jugador->save();
+ 
+        return response()->json($jugador);
     }
 
     /**
@@ -35,9 +44,10 @@ class JugadorController extends Controller
      * @param  \App\Models\Jugador  $jugador
      * @return \Illuminate\Http\Response
      */
-    public function show(Jugador $jugador)
+    public function show($ci)
     {
-        //
+        $jugador = Jugador::find($ci);
+        return response()->json($jugador);
     }
 
     /**
@@ -47,9 +57,15 @@ class JugadorController extends Controller
      * @param  \App\Models\Jugador  $jugador
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Jugador $jugador)
+    public function update(Request $request, $ci)
     {
-        //
+        $jugador = Jugador::find($ci);
+        $jugador->nombre = $request->nombre;
+        $jugador->telefono = $request->telefono;
+        $jugador->email = $request->email;
+        $jugador->save();
+ 
+        return response()->json($jugador);
     }
 
     /**
@@ -60,6 +76,8 @@ class JugadorController extends Controller
      */
     public function destroy(Jugador $jugador)
     {
-        //
+        Jugador::destroy($jugador);
+ 
+        return response()->json(['message' => 'Deleted']);
     }
 }

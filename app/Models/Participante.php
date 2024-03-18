@@ -32,7 +32,7 @@ class Participante extends Model
         return $this->hasMany(Pago::class,'IDparticipante');
     }
     public function ronda(){
-        return $this->hasMany(Ronda::class,'IDganador');
+        return $this->belongsTo(Ronda::class,'IDganador');
     }
     public function ofertas(){
         return $this->hasMany(Oferta::class,'IDparticipante');

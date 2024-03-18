@@ -19,7 +19,7 @@ class Ronda extends Model
         return $this->hasMany(Oferta::class,'IDronda');
     }
     public function ganador(){
-        return $this->belongsTo(Participante::class,'IDganador');
+        return $this->hasMany(Participante::class,'IDganador');
     }
     public function partidas(){
         return $this->belongsTo(Partida::class,'IDPartida');
