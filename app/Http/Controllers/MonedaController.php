@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class MonedaController extends Controller
 {
+    public function show($id)
+    {
+        $moneda = Moneda::find($id);
+
+        if (!$moneda) {
+            return response()->json(['message' => 'Moneda no encontrada.'], 404);
+        }
+        return $moneda;
+    }
+
     public function index()
     {
         return Moneda::all();

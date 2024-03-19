@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class EstadoController extends Controller
 {
+    public function show($id)
+    {
+        $estado = Estado::find($id);
+
+        if (!$estado) {
+            return response()->json(['message' => 'Estado no encontrado.'], 404);
+        }
+        return $estado;
+    }
+
     public function index()
     {
         return Estado::all();
