@@ -6,6 +6,16 @@ use Illuminate\Http\Request;
 
 class RolController extends Controller
 {
+    public function show($id)
+    {
+        $rol = Rol::find($id);
+
+        if (!$rol) {
+            return response()->json(['message' => 'Rol no encontrado.'], 404);
+        }
+        return $rol;
+    }
+
     public function index()
     {
         return Rol::all();
