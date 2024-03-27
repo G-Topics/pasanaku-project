@@ -15,8 +15,12 @@ return new class extends Migration
     {
         Schema::create('invitacion', function (Blueprint $table) {
             $table->integer('id')->unsigned()->primary();
-            $table->foreignId('IDparticipante')->constrained('participante');
-            $table->foreignId('IDpartida')->constrained('partida');
+            $table->date('fecha');
+            $table->string('nombre');
+            $table->integer('telefono');
+            $table->string('email');
+            $table->foreignId('id_participante')->constrained('participante');
+            $table->foreignId('id_partida')->constrained('partida');
         });
     }
 

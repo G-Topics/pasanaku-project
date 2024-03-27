@@ -9,15 +9,15 @@ class Detalle extends Model
     protected $table = 'detalle';
     public $timestamps = false;
 
-    protected $fillable = ['id', 'fecha','IDpartida','IDestado',];
+    protected $fillable = ['id', 'fecha','id_partida','id_estado',];
 
     public function partida()
     {
-        return $this->belongsTo( Partida::class, 'IDpartida');
+        return $this->belongsTo( Partida::class, 'id_partida');
     }
 
     public function estado()
     {
-        return $this->belongsTo( Estado::class, 'IDestado');
+        return $this->belongsTo( Estado::class, 'id_estado');
     }
 }
