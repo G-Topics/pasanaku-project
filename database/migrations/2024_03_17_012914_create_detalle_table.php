@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('detalle', function (Blueprint $table) {
             $table->integer('id')->unsigned()->primary();
             $table->date('fecha');
-            $table->foreignId('IDpartida')->constrained('partida');
-            $table->foreignId('IDestado')->constrained('estado');
+            $table->foreignId('id_partida')->constrained('partida');
+            $table->foreignId('id_estado')->constrained('estado');
         });
     }
 
