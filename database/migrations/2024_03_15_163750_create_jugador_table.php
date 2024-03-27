@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('jugador', function (Blueprint $table) {
             $table->integer('ci')->primary();
             $table->string('nombre');
-            $table->string('contraceña');  
+            $table->string('contraseña');  
             $table->string('email')->unique();          
             $table->integer('telefono')->unsigned();
             
