@@ -15,11 +15,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('partida', function (Blueprint $table) {
-            $table->integer('id')->unsigned()->primary();
-            $table->integer('cant_participantes');
+            $table->id();
+            $table->string('nombre');
+            $table->string('frecuencia');
             $table->date('fecha_inicio');
-            $table->foreignId('IDestado')->constrained('estado');
-            $table->foreignId('IDmoneda')->constrained('moneda');
+            $table->decimal('monto', 10, 2);
+            $table->decimal('multa', 10, 2);
+            $table->integer('capacidad');
+            $table->string('descripcion');
+            $table->foreignId('id_moneda')->constrained('moneda');
         });
     }
 

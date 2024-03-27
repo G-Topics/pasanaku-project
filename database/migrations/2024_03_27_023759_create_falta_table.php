@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ronda', function (Blueprint $table) {
+        Schema::create('falta', function (Blueprint $table) {
             $table->id();
-            $table->decimal('monto', 10, 2);
-            $table->date('h_inicio');
-            $table->integer('duracion');
-            $table->foreignId('id_ganador')->constrained('participante');
-            $table->foreignId('id_partida')->constrained('partida');
-            
+            $table->integer('n_dias');
+            $table->date('fecha');
+            $table->foreignId('id_participante')->constrained('participante');
+            $table->foreignId('id_ronda')->constrained('ronda');
         });
     }
 
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ronda');
+        Schema::dropIfExists('falta');
     }
 };
