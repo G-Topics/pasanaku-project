@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('cuenta', function (Blueprint $table) {
             $table->integer('id')->unsigned()->primary();
             $table->string('nrocuenta');
-            $table->foreignId('IDmoneda')->constrained('moneda');
-            $table->unsignedBigInteger('CIjugador');
-            $table->foreign('CIjugador')
+            $table->foreignId('id_moneda')->constrained('moneda');
+            $table->unsignedBigInteger('ci_jugador');
+            $table->foreign('ci_jugador')
             ->references('ci')
             ->on('jugador')
             ->onDelete('cascade');

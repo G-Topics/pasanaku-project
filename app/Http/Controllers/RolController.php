@@ -6,31 +6,40 @@ use Illuminate\Http\Request;
 
 class RolController extends Controller
 {
+    protected $responder;
+
+    public function __construct(ResponseController $responder)
+    {
+        $this->responder = $responder;
+    }
+
     public function show($id)
     {
         $rol = Rol::find($id);
 
         if (!$rol) {
-            return response()->json(['message' => 'Rol no encontrado.'], 404);
+            return $this->responder->response('error', 801, null, 'Rol no encontrado', now(), null);
         }
-        return $rol;
+        return $this->responder->response('success', 800, $rol, 'Rol encontrado', now(), null);
     }
 
     public function index()
     {
-        return Rol::all();
+        $rol= Rol::all();
+        return $this->responder->response('success', 800, $rol, 'Lista de Roles recuperada', now(), null);
     }
 
     public function store(Request $request)
     {
-        return Rol::create($request->all());
+        $rol= Rol::create($request->all());
+        return $this->responder->response('success', 800, $rol, 'Rol Creado exitosamente', now(), null);
     }
 
     public function update(Request $request, $id)
     {
         $rol = Rol::findOrFail($id);
         $rol->update($request->all());
-        return $rol;
+        return $this->responder->response('success', 800, $rol, 'Rol actualizado exitosamente', now(), null);
     }
 
     public function destroy($id)
@@ -38,11 +47,11 @@ class RolController extends Controller
         $rol = Rol::find($id);
 
         if (!$rol) {
-            return response()->json(['message' => 'rol no encontrado'], 404);
+            return $this->responder->response('error', 801, null, 'Rol no encontrado', now(), null);
         }
 
         $rol->delete();
 
-        return response()->json(['message' => 'rol eliminado correctamente'], 200);
+        return $this->responder->response('success', 800, null, 'Rol eliminado correctamente', now(), null);
     }
 }

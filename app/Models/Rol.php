@@ -11,6 +11,6 @@ class Rol extends Model
     protected $fillable = ['id', 'nombre', 'descripcion',];
 
     public function participantes(){
-        return $this->hasMany(Participante::class,'IDrol');
+        return $this->hasMany(Participante::class,'id_rol');
     }
 }
