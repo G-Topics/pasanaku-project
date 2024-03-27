@@ -27,13 +27,13 @@ class EstadoInvitacionController extends Controller
     public function index()
     {
         $estadosinvitaciones= EstadoInvitacion::all();
-        return $this->responder->response('success',800, $estadosinvitaciones,'Lista de estadoinvitacions recuperada', now(),null);
+        return $this->responder->response('success',800, $estadosinvitaciones,'Lista de estados de las invitaciones recuperada', now(),null);
     }
 
     public function store(Request $request)
     {
         $estadoinvitacion= EstadoInvitacion::create($request->all());
-        return $this->responder->response('success', 800, $estadoinvitacion, 'estadoinvitacion creado exitosamente', now(), null);
+        return $this->responder->response('success', 800, $estadoinvitacion, 'Estado de la invitación creado exitosamente', now(), null);
     }
 
     public function update(Request $request, $id)
