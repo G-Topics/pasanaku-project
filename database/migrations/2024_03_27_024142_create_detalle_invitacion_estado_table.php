@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ronda', function (Blueprint $table) {
+        Schema::create('detalle_invitacion_estado', function (Blueprint $table) {
             $table->id();
-            $table->decimal('monto', 10, 2);
-            $table->date('h_inicio');
-            $table->integer('duracion');
-            $table->foreignId('id_ganador')->constrained('participante');
-            $table->foreignId('id_partida')->constrained('partida');
-            
+            $table->date('fecha');
+            $table->foreignId('id_estado_invitacion')->constrained('estado_invitacion');
+            $table->foreignId('id_invitacion')->constrained('invitacion');
         });
     }
 
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ronda');
+        Schema::dropIfExists('detalle_invitacion_estado');
     }
 };
