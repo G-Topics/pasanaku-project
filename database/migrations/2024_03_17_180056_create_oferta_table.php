@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('oferta', function (Blueprint $table) {
             $table->integer('id')->unsigned()->primary();
-            $table->foreignId('CIparticipante')->constrained('participante');
-            $table->foreignId('IDronda')->constrained('ronda');
             $table->string('monto');
             $table->date('fecha');
+            $table->foreignId('id_participante')->constrained('participante');
+            $table->foreignId('id_ronda')->constrained('ronda');
+            
             
         });
     }

@@ -17,10 +17,11 @@ return new class extends Migration
             $table->integer('id')->unsigned()->primary();
             $table->date('fecha');
             $table->integer('monto');
-            $table->foreignId('IDCuentaOrigen')->constrained('cuenta');
-            $table->foreignId('IDCuentaDestino')->constrained('cuenta');
-            $table->foreignId('IDparticipante')->constrained('participante');
-            $table->foreignId('IDronda')->constrained('ronda');
+            $table->string('descripcion');
+            $table->foreignId('id_cuenta_origen')->constrained('cuenta');
+            $table->foreignId('id_centa_destino')->constrained('cuenta');
+            $table->foreignId('id_participante')->constrained('participante');
+            $table->foreignId('id_ronda')->constrained('ronda');
             
         });
     }

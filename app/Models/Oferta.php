@@ -9,13 +9,16 @@ class Oferta extends Model
 {
     protected $table = 'oferta';
     public $timestamps = false;
-    protected $fillable = ['id' ,'IDparticipante','IDronda','monto','fecha'];
+    protected $fillable = ['id' ,'monto','fecha','id_participante','id_ronda'];
 
-    public function rondas(){
-        return $this->belongsTo(Ronda::class,'IDronda');
-    }
     
     public function participantes(){
-        return $this->belongsTo(Participante::class,'IDparticipante');
+        return $this->belongsTo(Participante::class,'id_participante');
     }
+
+    public function rondas(){
+        return $this->belongsTo(Ronda::class,'id_ronda');
+    }
+    
+    
 }

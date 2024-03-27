@@ -10,20 +10,20 @@ class Pago extends Model
     protected $table = 'pago';
     public $timestamps = false;
 
-    protected $fillable = ['id', 'fecha','monto','IDronda','IDparticipante','ctaOrigen','ctaDestino'];
+    protected $fillable = ['id', 'fecha','monto','descripcion','id_cuenta_origen','id_cuenta_destino','id_participante','id_ronda'];
     
 
     public function ctsorigen(){
-        return $this->belongsTo(Cuenta::class,'ctaOrigen');
+        return $this->belongsTo(Cuenta::class,'id_cuenta_origen');
     }
     public function ctsdestino(){
-        return $this->belongsTo(Cuenta::class,'ctaDestino');
+        return $this->belongsTo(Cuenta::class,'id_cuenta_destino');
     }
     public function participantes(){
-        return $this->belongsTo(Participante::class,'IDparticipante');
+        return $this->belongsTo(Participante::class,'id_participante');
 
     }
     public function rondas(){
-        return $this->belongsTo(Ronda::class,'IDronda');
+        return $this->belongsTo(Ronda::class,'id_ronda');
     }
 }
