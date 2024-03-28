@@ -8,7 +8,7 @@ class Moneda extends Model
 {
     protected $table = 'moneda';
     public $timestamps = false;
-    protected $fillable = ['id', 'nombre', 'smonetario'];
+    protected $fillable = ['id', 'nombre', 's_monetario'];
     
     public function partidas(){
         return $this->hasMany(Partida::class,'id_moneda');

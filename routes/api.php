@@ -6,6 +6,7 @@ use App\Http\Controllers\JugadorController;
 use App\Http\Controllers\ParticipanteController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\EstadoInvitacionController;
+use App\Http\Controllers\PartidaController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -31,3 +32,4 @@ Route::resource('jugadores', JugadorController::class);
 Route::resource('roles', RolController::class);
 Route::resource('estados_invitaciones', EstadoInvitacionController::class);
 Route::resource('participantes', ParticipanteController::class);
+Route::resource('partidas', PartidaController::class);
